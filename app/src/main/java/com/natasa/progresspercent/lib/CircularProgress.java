@@ -59,7 +59,7 @@ public class CircularProgress extends View {
     private final float ANGLE_180 = 180f;
     private final int angTxtMargin = 5;
     private final int startAngle0 = -80;
-    private final int startAngle1 = -95;
+    private final int startAngle1 = -92;
     private int textSize = 26;
     private float startX, startY;
     private int circleTxtPadding;
@@ -181,8 +181,8 @@ public class CircularProgress extends View {
 
     private void drawText(Canvas canvas) {
 
-        angleX = (float) ((angle + 1) * Math.PI / ANGLE_180);
-        angleY = (float) ((angle + 1) * Math.PI / ANGLE_180);
+        angleX = (float) ((angle +1) * Math.PI / ANGLE_180);
+        angleY = (float) ((angle + 2) * Math.PI / ANGLE_180);
 
         startX = (float) (min / 2 - angTxtMargin + rectF.width() / 2 * Math.sin(angleX));
         startY = (float) (min / 2 + angTxtMargin - rectF.width() / 2 * Math.cos(angleY));
