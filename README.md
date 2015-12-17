@@ -1,5 +1,6 @@
 # Android-ProgressPercent
-Circular Progres bar and Line Progress bar with progress percentage shown.
+Inspired by [NumberProgressBar](https://github.com/daimajia/NumberProgressBar), I made **Android-ProgressPercent**,
+circular ProgressBar and line ProgressBar with progress percentage shown.
 
 ![example0](https://github.com/natasam/Android-ProgressPercent/blob/master/screenshots/video0.gif)
 ![example1](https://github.com/natasam/Android-ProgressPercent/blob/master/screenshots/1.png)![example2](https://github.com/natasam/Android-ProgressPercent/blob/master/screenshots/2.png)
