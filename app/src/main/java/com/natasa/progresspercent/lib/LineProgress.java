@@ -1,5 +1,5 @@
 /*
- * ProgressPercent
+ * Android-PercentProgressBar
  * Copyright (c) 2015  Natasa Misic
  *
  *
@@ -40,7 +40,6 @@ public class LineProgress extends BaseProgressView {
     private RectF rectP;
 
 
-
     public LineProgress(Context context) {
         super(context);
     }
@@ -53,7 +52,7 @@ public class LineProgress extends BaseProgressView {
         super(context, attrs, defStyle);
     }
 
-        @Override
+    @Override
     protected void init(Context context) {
         this.context = context;
         progress = 0;
@@ -73,9 +72,9 @@ public class LineProgress extends BaseProgressView {
     @Override
     protected void initTextColor() {
         super.initTextColor();
-       // typeface_path="Roboto-Regular.ttf";
-       // Typeface typeface = Typeface.createFromAsset(context.getAssets(), typeface_path);
-       // textPaint.setTypeface(typeface);
+        // typeface_path="Roboto-Regular.ttf";
+        // Typeface typeface = Typeface.createFromAsset(context.getAssets(), typeface_path);
+        // textPaint.setTypeface(typeface);
     }
 
     @Override
@@ -95,7 +94,7 @@ public class LineProgress extends BaseProgressView {
     private void drawRects(Canvas canvas) {
         int nMiddle = height / 2;
         Rect bounds = new Rect();
-        String text = "" +  progress + "%";
+        String text = "" + progress + "%";
         textPaint.getTextBounds(text, 0, text.length(), bounds);
         float mt = textPaint.measureText(text) + 40 + text.length();
 
@@ -135,7 +134,6 @@ public class LineProgress extends BaseProgressView {
 
 
     }
-
 
 
 }

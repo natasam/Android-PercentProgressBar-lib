@@ -1,5 +1,5 @@
 /*
- * ProgressPercent
+ * Android-PercentProgressBar
  * Copyright (c) 2015  Natasa Misic
  *
  *
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         // circularProgress.setBackgroundStrokeWidth(10);
         // circularProgress.setProgressStrokeWidth(15);
         //circularProgress.setRoundEdge(true);
-         circularProgress.setShadow(true);
+        circularProgress.setShadow(true);
         circularProgress.setOnProgressTrackListener(new OnProgressTrackListener() {
             @Override
             public void onProgressFinish() {

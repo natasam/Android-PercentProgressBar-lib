@@ -1,5 +1,5 @@
 /*
- * ProgressPercent
+ * Android-PercentProgressBar
  * Copyright (c) 2015  Natasa Misic
  *
  *
@@ -111,7 +111,7 @@ public class CircularProgress extends BaseProgressView {
 
     private void drawText(Canvas canvas) {
 
-        angleX = (float) ((angle +1.5) * Math.PI / ANGLE_180);
+        angleX = (float) ((angle + 1.5) * Math.PI / ANGLE_180);
         angleY = (float) ((angle + 2) * Math.PI / ANGLE_180);
 
         startX = (float) (min / 2 - angTxtMargin + rectF.width() / 2 * Math.sin(angleX));

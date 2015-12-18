@@ -1,5 +1,5 @@
 /*
- * ProgressPercent
+ * Android-PercentProgressBar
  * Copyright (c) 2015  Natasa Misic
  *
  *
@@ -30,7 +30,7 @@ import android.view.View;
 
 import com.natasa.progresspercent.R;
 
-abstract class BaseProgressView extends View{
+abstract class BaseProgressView extends View {
     protected int progress;
     protected int maximum_progress = 100;
 
@@ -53,6 +53,7 @@ abstract class BaseProgressView extends View{
     public void setOnProgressTrackListener(OnProgressTrackListener listener) {
         this.listener = listener;
     }
+
     protected abstract void init(Context context);
 
     public BaseProgressView(Context context) {
@@ -74,6 +75,7 @@ abstract class BaseProgressView extends View{
         init(context);
 
     }
+
     private void initTypedArray(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.getTheme().obtainStyledAttributes(
                 attrs, R.styleable.Progress, 0, 0);
@@ -102,6 +104,7 @@ abstract class BaseProgressView extends View{
         typeface = Typeface.createFromAsset(context.getAssets(), typeface_path);
 
     }
+
     protected void initBackgroundColor() {
         backgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         backgroundPaint.setColor(backgroundColor);
@@ -115,6 +118,7 @@ abstract class BaseProgressView extends View{
             backgroundPaint.setShadowLayer(3.0f, 0.0f, 2.0f, shadowColor);
         }
     }
+
     protected void initForegroundColor() {
         foregroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         foregroundPaint.setColor(color);
@@ -129,6 +133,7 @@ abstract class BaseProgressView extends View{
             foregroundPaint.setShadowLayer(3.0f, 0.0f, 2.0f, shadowColor);
         }
     }
+
     protected void initTextColor() {
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setColor(textColor);

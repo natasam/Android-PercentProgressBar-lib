@@ -1,5 +1,5 @@
 /*
- * ProgressPercent
+ * Android-PercentProgressBar
  * Copyright (c) 2015  Natasa Misic
  *
  *
