@@ -140,7 +140,7 @@ abstract class BaseProgressView extends View {
         textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         textPaint.setStrokeWidth(1f);
         textPaint.setTextSize(textSize);
-        Typeface typeface = Typeface.createFromAsset(context.getAssets(), typeface_path);
+         typeface = Typeface.createFromAsset(context.getAssets(), typeface_path);
         textPaint.setTypeface(typeface);
 
 
