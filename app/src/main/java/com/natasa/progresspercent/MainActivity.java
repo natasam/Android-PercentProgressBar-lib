@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         lineProgress.setRoundEdge(true);
         lineProgress.setShadow(true);
         lineProgress.setProgressColor(getResources().getColor(R.color.colorPrimary));
-        circularProgress.setTypeface("Roboto-Regular.ttf");
+        lineProgress.setTypeface("Roboto-Regular.ttf");
         //methods that can be used for both progress views
 
         //circularProgress.setTypeface("Roboto-Regular.ttf");
