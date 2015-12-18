@@ -34,91 +34,45 @@ import com.natasa.progresspercent.R;
 import com.natasa.progresspercent.lib.OnProgressTrackListener;
 
 
-public class CircularProgress extends View {
+public class CircularProgress extends BaseProgressView {
 
     private static final int ANGLE_360 = 360;
-    private Paint foregroundPaint, backgroundPaint;
-    private float backgroundStrokeWidth = 3f, strokeWidth = 5f;
-    private int PADDING = 20;
     private RectF rectF;
     private float bottom;
     private float right;
     private float top;
     private float left;
     private float angle;
-    private int progress;
-    private int maximum_progress = 100;
-    private int height, width;
+
     private int min;
-    private Paint textPaint;
-    private int color = getResources().getColor(R.color.colorAccent), backgroundColor = Color.WHITE;
-    private int textColor = getResources().getColor(R.color.colorPrimaryDark);
     private float angleX;
     private float angleY;
-    private Context context;
     private final float ANGLE_180 = 180f;
     private final int angTxtMargin = 5;
     private final int startAngle0 = -80;
     private final int startAngle1 = -92;
-    private int textSize = 26;
     private float startX, startY;
     private int circleTxtPadding;
-    private int txtMarginX = 18;
-    private int txtMarginY = 25;
-    private int shadowColor = getResources().getColor(R.color.shader);
-    private String typeface_path = "Roboto-Light.ttf";
-    private boolean isRoundEdge;
-    private boolean isShadowed;
-    private OnProgressTrackListener listener;
-
-    public void setOnProgressTrackListener(OnProgressTrackListener listener) {
-        this.listener = listener;
-    }
+    private int txtMarginX;
+    private int txtMarginY;
 
     public CircularProgress(Context context) {
         super(context);
-        init(context);
 
     }
 
     public CircularProgress(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initTypedArray(context, attrs);
-        init(context);
 
     }
 
     public CircularProgress(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context);
     }
 
-    private void initTypedArray(Context context, AttributeSet attrs) {
-        TypedArray typedArray = context.getTheme().obtainStyledAttributes(
-                attrs, R.styleable.Progress, 0, 0);
-        try {
-            progress = (int) typedArray.getFloat(
-                    R.styleable.Progress_progress, progress);
-            strokeWidth = typedArray.getDimension(
-                    R.styleable.Progress_stroke_width, strokeWidth);
-            backgroundStrokeWidth = typedArray.getDimension(
-                    R.styleable.Progress_background_stroke_width,
-                    backgroundStrokeWidth);
-            color = typedArray.getInt(
-                    R.styleable.Progress_progress_color, color);
-            backgroundColor = typedArray.getInt(
-                    R.styleable.Progress_background_color, backgroundColor);
-            textColor = typedArray.getInt(
-                    R.styleable.Progress_text_color, textColor);
-            textSize = typedArray.getInt(
-                    R.styleable.Progress_text_size, textSize);
 
-        } finally {
-            typedArray.recycle();
-        }
-    }
-
-    private void init(Context ctx) {
+    @Override
+    protected void init(Context ctx) {
         context = ctx;
         rectF = new RectF();
         setProgress(0);
@@ -127,45 +81,21 @@ public class CircularProgress extends View {
         initTextColor();
     }
 
-
-    protected void initForegroundColor() {
-        foregroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        foregroundPaint.setColor(color);
-        foregroundPaint.setStyle(Paint.Style.STROKE);
-        foregroundPaint.setStrokeWidth(strokeWidth);
-        if (isRoundEdge) {
-            foregroundPaint.setStrokeCap(Paint.Cap.ROUND);
-        }
-        if (isShadowed) {
-            this.setLayerType(LAYER_TYPE_SOFTWARE, backgroundPaint);
-            foregroundPaint.setShadowLayer(4.0f, 0.0f, 2.0f, shadowColor);
-        }
-    }
-
-    protected void initTextColor() {
-        textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        textPaint.setColor(textColor);
-        textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        textPaint.setStrokeWidth(1f);
-        textPaint.setTextSize(textSize);
-        Typeface typeface = Typeface.createFromAsset(context.getAssets(), typeface_path);
-        textPaint.setTypeface(typeface);
-    }
-
+    @Override
     protected void initBackgroundColor() {
-        backgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        backgroundPaint.setColor(backgroundColor);
-        backgroundPaint.setStyle(Paint.Style.STROKE);
-        backgroundPaint.setStrokeWidth(backgroundStrokeWidth);
-        if (isRoundEdge) {
-            backgroundPaint.setStrokeCap(Paint.Cap.ROUND);
-        }
-        if (isShadowed) {
-            this.setLayerType(LAYER_TYPE_SOFTWARE, backgroundPaint);
-            backgroundPaint.setShadowLayer(10.0f, 0.0f, 2.0f, shadowColor);
-        }
-
+        super.initBackgroundColor();
     }
+
+    @Override
+    protected void initForegroundColor() {
+        super.initForegroundColor();
+    }
+
+    @Override
+    protected void initTextColor() {
+        super.initTextColor();
+    }
+
 
     @Override
     protected synchronized void onDraw(Canvas canvas) {
@@ -181,7 +111,7 @@ public class CircularProgress extends View {
 
     private void drawText(Canvas canvas) {
 
-        angleX = (float) ((angle +1) * Math.PI / ANGLE_180);
+        angleX = (float) ((angle +1.5) * Math.PI / ANGLE_180);
         angleY = (float) ((angle + 2) * Math.PI / ANGLE_180);
 
         startX = (float) (min / 2 - angTxtMargin + rectF.width() / 2 * Math.sin(angleX));
@@ -189,81 +119,24 @@ public class CircularProgress extends View {
 
 
         if (progress > 98) {
+            canvas.save();
+
             txtMarginX = 30;
             txtMarginY = -10;
-            canvas.save();
             canvas.rotate(angle, startX, startY);
 
             canvas.drawText(String.format("%d%%", progress), startX - txtMarginX, startY + txtMarginY,
                     textPaint);
             canvas.restore();
         } else {
+            txtMarginX = 18;
+            txtMarginY = 25;
             canvas.drawText(String.format("%d%%", progress), startX - txtMarginX, startY + angTxtMargin,
                     textPaint);
+
         }
     }
 
-    public void setTextSize(int textSize) {
-        this.textSize = textSize;
-        init(context);
-    }
-
-    public void setTypeface(String typefacePath) {
-        this.typeface_path = typefacePath;
-        init(context);
-
-    }
-
-    public int getProgressColor() {
-        return color;
-    }
-
-    public void setProgressColor(int color) {
-        this.color = color;
-        init(context);
-
-    }
-
-    public int getBackgroundColor() {
-        return backgroundColor;
-    }
-
-    public void setBackgroundColor(int backgroundColor) {
-        this.backgroundColor = backgroundColor;
-        init(context);
-
-    }
-
-    public int getTextColor() {
-        return textColor;
-    }
-
-    public void setTextColor(int textColor) {
-        this.textColor = textColor;
-        init(context);
-
-    }
-
-    public void setProgressStrokeWidth(int strokeWidth) {
-        this.strokeWidth = strokeWidth;
-        init(context);
-    }
-
-    public void setBackgroundStrokeWidth(int strokeWidth) {
-        this.backgroundStrokeWidth = strokeWidth;
-        init(context);
-    }
-
-    public void setRoundEdge(boolean isRoundEdge) {
-        this.isRoundEdge = isRoundEdge;
-        init(context);
-    }
-
-    public void setShadow(boolean isShadowed) {
-        this.isShadowed = isShadowed;
-        init(context);
-
-    }
 
     @Override
     protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -290,33 +163,4 @@ public class CircularProgress extends View {
         return smallerDimens;
     }
 
-    protected float getProgress() {
-        return progress;
-    }
-
-
-    public void setProgress(int progress) {
-        setProgressInView(progress);
-
-    }
-
-    private synchronized void setProgressInView(int progress) {
-        this.progress = (progress <= maximum_progress) ? progress : maximum_progress;
-        invalidate();
-        trackProgressInView(progress);
-    }
-
-    private void trackProgressInView(int progress) {
-        if (listener != null) {
-            listener.onProgressUpdate(progress);
-            if (progress >= maximum_progress) {
-                listener.onProgressFinish();
-            }
-        }
-    }
-
-    public void resetProgress() {
-        setProgress(0);
-
-    }
 }

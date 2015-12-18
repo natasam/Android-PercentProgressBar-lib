@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/circular"
         android:layout_margin="10dp"
-        app:background_stroke_width="3dp"
+        app:background_stroke_width="2dp"
         app:progress="0"
         app:stroke_width="3dp" />
 
