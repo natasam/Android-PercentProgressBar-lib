@@ -29,6 +29,7 @@
         android:layout_margin="10dp"
         app:background_stroke_width="2dp"
         app:progress="0"
+        app:progress_color="@color/colorPrimary"
         app:stroke_width="3dp" />
 
     <SeekBar
