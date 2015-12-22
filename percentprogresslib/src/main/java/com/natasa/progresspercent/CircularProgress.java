@@ -18,7 +18,7 @@
  *
  */
 
-package com.natasa.progresspercent.lib;
+package com.natasa.progresspercent;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -31,7 +31,6 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.natasa.progresspercent.R;
-import com.natasa.progresspercent.lib.OnProgressTrackListener;
 
 
 public class CircularProgress extends BaseProgressView {

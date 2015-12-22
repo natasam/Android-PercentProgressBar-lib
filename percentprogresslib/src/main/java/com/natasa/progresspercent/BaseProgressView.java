@@ -17,7 +17,7 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-package com.natasa.progresspercent.lib;
+package com.natasa.progresspercent;
 
 
 import android.content.Context;

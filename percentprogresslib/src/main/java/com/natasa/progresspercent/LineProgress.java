@@ -18,7 +18,7 @@
  *
  */
 
-package com.natasa.progresspercent.lib;
+package com.natasa.progresspercent;
 
 
 import android.content.Context;

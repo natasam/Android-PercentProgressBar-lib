@@ -18,13 +18,13 @@
  *
  */
 
-package com.natasa.progresspercent.lib;
+package com.natasa.progresspercent;
 
 
 public interface OnProgressTrackListener {
-    public void onProgressFinish();
+     void onProgressFinish();
 
-    public void onProgressUpdate(int progress);
+     void onProgressUpdate(int progress);
 }
 
 
