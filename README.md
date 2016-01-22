@@ -4,11 +4,12 @@
 Inspired by [NumberProgressBar](https://github.com/daimajia/NumberProgressBar), this is **Android-PercentProgressBar**,
 CircularProgressBar and LineProgressBar with progress percentage shown. 
 
+It is also available on [Android Arsenal]( https://android-arsenal.com/details/1/3052).
+
 # Use
 
 It is very easy to use, to integrate and to customize PercentProgressBar. Demo is available here: https://github.com/natasam/DemoPercentProgressBar
 
-It is also available on [Android Arsenal]( https://android-arsenal.com/details/1/3052).
 
 
 ![example0](https://github.com/natasam/Android-PercentProgressBar/blob/master/screenshots/video0.gif)
