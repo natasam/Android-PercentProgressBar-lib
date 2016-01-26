@@ -8,7 +8,7 @@ It is also available on [Android Arsenal]( https://android-arsenal.com/details/1
 
 # Use
 
-It is very easy to use, to integrate and to customize PercentProgressBar. Demo is available here: https://github.com/natasam/DemoPercentProgressBar
+It is very easy to use, to integrate and to customize PercentProgressBar. Demo is available here: https://github.com/natasam/Demo-PercentProgressBar
 
 
 
