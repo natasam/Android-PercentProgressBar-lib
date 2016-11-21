@@ -58,18 +58,15 @@ public class CircularProgress extends BaseProgressView {
 
     public CircularProgress(Context context) {
         super(context);
-
     }
 
     public CircularProgress(Context context, AttributeSet attrs) {
         super(context, attrs);
-
     }
 
     public CircularProgress(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
-
 
     @Override
     protected void init(Context ctx) {
@@ -96,27 +93,23 @@ public class CircularProgress extends BaseProgressView {
         super.initTextColor();
     }
 
-
     @Override
     protected synchronized void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         angle = ANGLE_360 * progress / maximum_progress;
-
         canvas.drawArc(rectF, startAngle0, angle - ANGLE_360, false, backgroundPaint);
-        if (progress > 1)
+        if (progress > 1){
             canvas.drawArc(rectF, startAngle1, angle, false, foregroundPaint);
-
+        }
         drawText(canvas);
     }
 
     private void drawText(Canvas canvas) {
-
         angleX = (float) ((angle + 1.5) * Math.PI / ANGLE_180);
         angleY = (float) ((angle + 2) * Math.PI / ANGLE_180);
 
         startX = (float) (min / 2 - angTxtMargin + rectF.width() / 2 * Math.sin(angleX));
         startY = (float) (min / 2 + angTxtMargin - rectF.width() / 2 * Math.cos(angleY));
-
 
         if (progress > 98) {
             canvas.save();
@@ -133,10 +126,8 @@ public class CircularProgress extends BaseProgressView {
             txtMarginY = 25;
             canvas.drawText(String.format("%d%%", progress), startX - txtMarginX, startY + angTxtMargin,
                     textPaint);
-
         }
     }
-
 
     @Override
     protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -152,7 +143,6 @@ public class CircularProgress extends BaseProgressView {
                 - PADDING - circleTxtPadding);
     }
 
-
     protected int setDimensions(int widthMeasureSpec, int heightMeasureSpec) {
         height = getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec);
         width = getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec);
@@ -162,5 +152,4 @@ public class CircularProgress extends BaseProgressView {
         setMeasuredDimension(smallerDimens, smallerDimens);
         return smallerDimens;
     }
-
 }
