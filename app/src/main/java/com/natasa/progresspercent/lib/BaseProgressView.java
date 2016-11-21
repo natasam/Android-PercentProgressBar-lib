@@ -18,8 +18,6 @@
  *
  */
 package com.natasa.progresspercent.lib;
-
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -59,21 +57,17 @@ abstract class BaseProgressView extends View {
     public BaseProgressView(Context context) {
         super(context);
         init(context);
-
     }
 
     public BaseProgressView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initTypedArray(context, attrs);
         init(context);
-
     }
-
 
     public BaseProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
-
     }
 
     private void initTypedArray(Context context, AttributeSet attrs) {
@@ -95,14 +89,11 @@ abstract class BaseProgressView extends View {
                     R.styleable.Progress_text_color, textColor);
             textSize = typedArray.getInt(
                     R.styleable.Progress_text_size, textSize);
-
         } finally {
             typedArray.recycle();
         }
         this.setLayerType(LAYER_TYPE_SOFTWARE, null);
-
         typeface = Typeface.createFromAsset(context.getAssets(), typeface_path);
-
     }
 
     protected void initBackgroundColor() {
@@ -114,7 +105,6 @@ abstract class BaseProgressView extends View {
             backgroundPaint.setStrokeCap(Paint.Cap.ROUND);
         }
         if (isShadowed) {
-
             backgroundPaint.setShadowLayer(3.0f, 0.0f, 2.0f, shadowColor);
         }
     }
@@ -129,7 +119,6 @@ abstract class BaseProgressView extends View {
         }
 
         if (isShadowed) {
-
             foregroundPaint.setShadowLayer(3.0f, 0.0f, 2.0f, shadowColor);
         }
     }
@@ -142,18 +131,14 @@ abstract class BaseProgressView extends View {
         textPaint.setTextSize(textSize);
          typeface = Typeface.createFromAsset(context.getAssets(), typeface_path);
         textPaint.setTypeface(typeface);
-
-
     }
 
     public float getProgress() {
         return progress;
     }
 
-
     public void setProgress(int progress) {
         setProgressInView(progress);
-
     }
 
     private synchronized void setProgressInView(int progress) {
@@ -173,7 +158,6 @@ abstract class BaseProgressView extends View {
 
     public void resetProgress() {
         setProgress(0);
-
     }
 
     public void setTextSize(int textSize) {
@@ -184,7 +168,6 @@ abstract class BaseProgressView extends View {
     public void setTypeface(String typefacePath) {
         this.typeface_path = typefacePath;
         init(context);
-
     }
 
     public int getProgressColor() {
@@ -194,7 +177,6 @@ abstract class BaseProgressView extends View {
     public void setProgressColor(int color) {
         this.color = color;
         init(context);
-
     }
 
     public int getBackgroundColor() {
@@ -204,7 +186,6 @@ abstract class BaseProgressView extends View {
     public void setBackgroundColor(int backgroundColor) {
         this.backgroundColor = backgroundColor;
         init(context);
-
     }
 
     public int getTextColor() {
@@ -214,7 +195,6 @@ abstract class BaseProgressView extends View {
     public void setTextColor(int textColor) {
         this.textColor = textColor;
         init(context);
-
     }
 
     public void setProgressStrokeWidth(int strokeWidth) {
@@ -235,6 +215,5 @@ abstract class BaseProgressView extends View {
     public void setShadow(boolean isShadowed) {
         this.isShadowed = isShadowed;
         init(context);
-
     }
 }
