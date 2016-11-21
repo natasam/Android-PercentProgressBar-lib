@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         circularProgress.setOnProgressTrackListener(new OnProgressTrackListener() {
             @Override
             public void onProgressFinish() {
-                //circularProgress.resetProgress();
             }
 
             @Override
@@ -73,20 +72,15 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 circularProgress.setProgress(progress);
                 lineProgress.setProgress(progress);
-
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
     }
-
-
 }
