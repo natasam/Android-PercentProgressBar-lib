@@ -1,3 +1,5 @@
+ [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--PercentProgressBar-green.svg?style=true)](https://android-arsenal.com/details/1/3052)
+
 # Android-PercentProgressBar
 Inspired by [NumberProgressBar](https://github.com/daimajia/NumberProgressBar), this is **Android-PercentProgressBar**,
 circular ProgressBar and line ProgressBar with progress percentage shown.
